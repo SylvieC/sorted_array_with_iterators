@@ -34,7 +34,7 @@ describe SortedArray do
         it_should_behave_like "yield to all elements in sorted array", :map
 
         it 'creates a new array containing the values returned by the block' do
-          pending "fill this spec in with a meaningful example"
+          sorted_array.map{|el| el + 4}.should eq source
         end
       end
     end
@@ -42,31 +42,31 @@ describe SortedArray do
     describe "that update the original array" do
       describe :map! do
         it 'the original array should be updated' do
-          pending "fill this spec in with a meaningful example"
+          sorted_array.map! { |ele| 1 + ele}.should eq [3,4,5,8,10]
         end
 
         it_should_behave_like "yield to all elements in sorted array", :map!
 
         it 'should replace value of each element with the value returned by block' do
-          pending "this is just the same as the example above"
+          sorted_array.map!{|ele| ele + 2}.should eq [4, 5, 6, 9, 11]
         end
       end
     end
   end
 
   describe :find do
-    it_should_behave_like "yield to all elements in sorted array", :find
+    
 
-    it "does not currently have any examples for it" do
-      pending "define some examples by looking up http://www.ruby-doc.org/core-2.1.0/Enumerable.html#method-i-find"
+    it "returns the first element that return true for the" do
+       sorted_array.find{|ele| ele > 8}.should eq 9
     end
   end
 
   describe :inject do
     it_should_behave_like "yield to all elements in sorted array", :inject
 
-    it "does not currently have any examples for it" do
-      pending "define some examples by looking up http://www.ruby-doc.org/core-2.1.0/Enumerable.html#method-i-inject"
+    it "behaves as planned" do
+      sorted_array.inject(1){ |sum, value|  sum + value}.should eq 26
     end
   end
 end
