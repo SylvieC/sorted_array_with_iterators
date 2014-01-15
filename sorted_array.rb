@@ -97,5 +97,14 @@ class SortedArray
     end
    return acc
   end 
+
+#the each index does an action the used both the element and its index, the original array 
+#stays unchanged
+  def each_with_index &block
+    i = 0
+    while i < @internal_arr.size
+      yield(@internal_arr[i], i)
+      i
+    end
    
   end
