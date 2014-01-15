@@ -83,7 +83,14 @@ class SortedArray
    # acc = nil
    #  @internal_arr.each { |value| acc = yield(acc, value)}
    #  return acc
-    i = 0
+
+    if acc ==nil
+      acc = @internal_arr[0]
+      i = 1
+    else
+     i = 0
+    end
+    
     while i < @internal_arr.size
       acc = yield(acc, @internal_arr[i])
       i+= 1
@@ -92,8 +99,3 @@ class SortedArray
   end 
    
   end
-
-
-
-  
-
