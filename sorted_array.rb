@@ -78,12 +78,18 @@ class SortedArray
     end
     return value
   end
-  
+
   def inject acc=nil, &block
-   acc == nil 
-    @internal_arr.each { |value| acc = yield(acc, value)}
-    return acc
-  end
+   # acc = nil
+   #  @internal_arr.each { |value| acc = yield(acc, value)}
+   #  return acc
+    i = 0
+    while i < @internal_arr.size
+      acc = yield(acc, @internal_arr[i])
+      i+= 1
+    end
+   return acc
+  end 
    
   end
 
