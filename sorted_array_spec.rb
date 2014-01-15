@@ -63,12 +63,13 @@ describe SortedArray do
 
     it "returns none when there are no elements that match the block" do
       sorted_array.find("none"){|ele| ele % 5 == 0 }.should eq "none"
+    end
   end
 
   describe :inject do
 
-    it_should_behave_like "yield to all elements in sorted array", :inject
-  end
+    # it_should_behave_like "yield to all elements in sorted array", :inject
+  # end
 
     it "behaves as planned" do
       sorted_array.inject(1){ |sum, value|  sum + value}.should eq 26
