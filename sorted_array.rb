@@ -70,18 +70,24 @@ class SortedArray
     #find(ifnone = nil) { |obj| block } → obj or nil clic for which |i, value|
     i = 0
     while i < @internal_arr.size
-      if yield(value,@internal_arr[i])
+      if yield(@internal_arr[i])
         return @internal_arr[i]
+      else
+      i += 1
       end
     end
-      return nil
+    return value
   end
-
+  
   def inject acc=nil, &block
+   acc == nil 
+    @internal_arr.each { |value| acc = yield(acc, value)}
+    return acc
+  end
    
   end
 
 
 
   
-end
+
